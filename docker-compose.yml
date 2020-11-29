@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  app:
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/opt/app
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    env_file: .env
+    environment:
+      - SPRING_DATASOURCE_URL:${SPRING_DATASOURCE_URL}
+    
